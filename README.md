@@ -1,57 +1,133 @@
-<header>
+# Rain
 
-<!--
-  <<< Author notes: Course header >>>
-  Include a 1280×640 image, course title in sentence case, and a concise description in emphasis.
-  In your repository settings: enable template repository, add your 1280×640 social image, auto delete head branches.
-  Add your open source license, GitHub uses MIT license.
--->
+Rain is a simple and clean Jekyll theme with focus on content. It's a fork of [Tale theme](https://github.com/chesterhow/tale) with additional customizations.
 
-# GitHub Pages
+![](https://github.com/inelaah/rain/blob/master/images/screenshot.png)
 
-_Create a site or blog from your GitHub repositories with GitHub Pages._
+## Features
+- Compatible with GitHub Pages
+- Responsive design
+- Syntax highlighting
+- Markdown and HTML text formatting
+- Pagination of posts
+- Related articles section
+- Links to social media
 
-</header>
 
-<!--
-  <<< Author notes: Finish >>>
-  Review what we learned, ask for feedback, provide next steps.
--->
+## Getting Started
 
-## Finish
+You will need to install Jekyll on your machine. Installation depends on your operating system and it is explained [here](https://jekyllrb.com/docs/installation/).
 
-_Congratulations friend, you've completed this course!_
+Then create a new directory and clone this repository:
 
-<img src=https://octodex.github.com/images/constructocat2.jpg alt=celebrate width=300 align=right>
+```bash
+mkdir rain
+cd rain
+git clone https://github.com/inelaah/rain.git
+```
 
-Your blog is now live and has been deployed!
+Install all dependencies:
 
-Here's a recap of all the tasks you've accomplished in your repository:
+```bash
+bundle install
+```
 
-- You enabled GitHub Pages.
-- You selected a theme using the config file.
-- You learned about proper directory format and file naming conventions in Jekyll.
-- You created your first blog post with Jekyll!
+## Site Configuration
 
-### What's next?
+There is a configuration file `_config.yml` in root directory. You should overwrite it to fit to your needs.
 
-- Keep working on your GitHub Pages site... we love seeing what you come up with!
-- We'd love to hear what you thought of this course [in our discussion board](https://github.com/orgs/skills/discussions/categories/github-pages).
-- [Take another GitHub Skills course](https://github.com/skills).
-- [Read the GitHub Getting Started docs](https://docs.github.com/en/get-started).
-- To find projects to contribute to, check out [GitHub Explore](https://github.com/explore).
+An example of `_config.yml` looks like this:
 
-<footer>
+```bash
+# Site settings
+title:          Rain
+description:    "Rain is a simple and clean Jekyll theme with focus on content."
+url:            https://github.com/inelaah/rain
 
-<!--
-  <<< Author notes: Footer >>>
-  Add a link to get support, GitHub status page, code of conduct, license link.
--->
+# Author
+author:
+  name:         Inela Avdic Hukic
+  email:        inelaah@gmail.com
+  url:          https://inelaah.com
 
----
+# Build settings
+markdown:       kramdown
 
-Get help: [Post in our discussion board](https://github.com/orgs/skills/discussions/categories/github-pages) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
+# Assets
+sass:
+  sass_dir:     _sass
+  style:        compressed
 
-&copy; 2023 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+# Gems
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  # - jemoji #Uncomment this to allow emoji in your post
 
-</footer>
+# Permalinks
+permalink:      /:year-:month-:day/:title
+paginate:       5
+
+# Related posts settings
+related_posts_section:
+  max_count:        5
+  min_common_tags:  2
+
+# Links to social media
+social:
+  email: inelaah@gmail.com
+  github: https://github.com/inelaah
+  twitter: https://twitter.com
+  linkedin: https://ba.linkedin.com/in/inela-avdic-hukic-322354131
+```
+
+## Favicons
+
+It is recommended to put your own favicons:
+
+- `apple-touch-icon.png` (180x180)
+- `favicon-32x32.png` (32x32)
+- `favicon-16x16.png` (16x16)
+- `mstile-150x150.png` (150x150)
+- `android-chrome-192x192.png` (192x192)
+- `android-chrome-512x512.png` (512x512)
+
+in `/assets` directory. They're easily created via [Favicon Generator](https://realfavicongenerator.net/).
+
+
+## Related Articles
+
+Related articles section is based on article tags. For every post that you want to have this section you should define tags.
+To include related articles in the bottom of the content you should define `related_posts_section` property in configuration file.
+It contains two fields: `max_count` and `min_common_tags`:
+- `max_count` represents the maximum number of related articles shown on a single article.
+- `min_common_tags` represents the minimum number of common tags for two articles to become related articles.
+
+## Links to social media
+
+To include links to social media in the top right corner of your page you need to define `social` property.
+It contains email, GitHub, Twitter and LinkedIn fields. You can leave out any of these if you don't want them to show up on your page.
+
+## Customizing Rain theme
+
+If you want to customize Rain theme you can fork this project and make some changes. If you just want to change the style then you can find Sass files in `_sass/rain` directory.
+
+## Adding your own posts
+
+You can see an example of post structure in `_posts` directory. After you clone this project you should clean the `_posts` directory and add your own posts.
+
+## Build and serve
+
+```
+bundle exec jekyll serve
+```
+
+Head over to http://127.0.0.1:4000/ to see your page.
+
+## License
+
+Rain is licensed under the MIT license. Check the [LICENSE](LICENSE.md) file for details.
+
+## Author
+
+[Inela Avdic Hukic](https://github.com/inelaah)
